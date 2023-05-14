@@ -74,11 +74,15 @@ const Read = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-between m-2">
+      <div className="d-flex justify-content-around m-2">
         <h2>Read Data</h2>
         <Link to={"/create"}>
-          <button className="btn btn-primary">Back</button>
+          <button className="btn btn-success" style={{marginLeft:"550px"}}>Create</button>
         </Link>
+        <Link to={"/"}>
+          <button className="btn btn-danger" style={{marginRight:"20px"}} >Sign-out</button>
+        </Link>
+        
       </div>
       <div className="container">
         <table className={`table ${tableDark}`}>

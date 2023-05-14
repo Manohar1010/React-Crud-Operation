@@ -25,11 +25,11 @@ function App() {
               </li>
             </ul>
           </div> */}
-          <Route exact path="/" Component={Home}></Route>
+          <Route exact path="/" Component={Login}></Route>
           <Route  path="/create" Component={Create}></Route>
           <Route path="/read" Component={Read}></Route>
           <Route path="/update" Component={Update}></Route>
-          <Route path="/login" Component={Login}></Route>
+          {/* <Route path="/login" Component={Login}></Route> */}
         </Routes>
       </BrowserRouter>
     </div>

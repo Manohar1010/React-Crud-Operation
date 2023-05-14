@@ -13,7 +13,7 @@ const Create = () => {
 
   const ReadData = () => {
     try {
-      history("/read");
+      history("/");
     } catch (error) {}
   };
 
@@ -31,7 +31,7 @@ const Create = () => {
           header,
         })
         .then(() => {
-          history("/login");
+          history("/");
         });
     } else {
       alert("Full fill the input");
@@ -61,7 +61,7 @@ const Create = () => {
         <div className="d-flex justify-content-between m-2">
           <h2>Create</h2>
           <button className="btn btn-primary" onClick={ReadData}>
-            Show Data
+            Login
           </button>
         </div>
 
