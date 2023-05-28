@@ -6,11 +6,13 @@ import Read from "./component/Read";
 import Home from "./component/Home";
 import Update from "./component/Update";
 import Login from "./component/Login";
+import DinamicNavbar from "./component/DinamicNavbar";
 
 function App() {
   return (
     <div className="container">
       <BrowserRouter>
+      <DinamicNavbar />
         <Routes>
           {/* <div className="">
             <ul>

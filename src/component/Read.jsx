@@ -165,12 +165,37 @@ const Read = () => {
                 </>
               );
             })}
-
         </table>
-        <div  style={{textAlign:"center" , display:"flex" , justifyContent:"center" , alignItems:"center" , justifyContent:"center" }}>
+        <div
+          style={{
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {pages.map((page, index) => {
-            return <button key={index} onClick={()=>setCurrentPage(page)} className="btn-sm  m-1  ">{page}</button>;
-          })}</div>
+            return (
+              <> 
+                
+                <button
+                  className={page == currentPage ? "bg-success" : ""}
+                  key={index}
+                  onClick={() => setCurrentPage(page)}
+                  style={{
+                    margin: "5px",
+                    borderRadius: "8px",
+                    color: "white",
+                    background: "#757575",
+                  }}
+                >
+                  {page}
+                </button>{" "}
+              </>
+            );
+          })}
+        </div>
       </div>
     </>
   );
