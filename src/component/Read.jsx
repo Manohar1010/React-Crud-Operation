@@ -6,6 +6,8 @@ const Read = () => {
   const [data, setData] = useState([]);
   const [tableDark, setTableDark] = useState("");
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(3);
+  const [postPerPage, setPostPerPage] = useState(4);
 
   const Updatehendle = (id, name, email, password) => {
     localStorage.setItem("id", id);
@@ -38,6 +40,19 @@ const Read = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  // Pagination logic
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+
+  const currentPost = data.slice(firstPostIndex, lastPostIndex);
+
+  const pages = [];
+
+  for (let i = 1; i <= Math.ceil(data.length / postPerPage); i++) {
+    pages.push(i);
+  }
 
   return (
     <>
@@ -77,12 +92,15 @@ const Read = () => {
       <div className="d-flex justify-content-around m-2">
         <h2>Read Data</h2>
         <Link to={"/create"}>
-          <button className="btn btn-success" style={{marginLeft:"550px"}}>Create</button>
+          <button className="btn btn-success" style={{ marginLeft: "550px" }}>
+            Create
+          </button>
         </Link>
         <Link to={"/"}>
-          <button className="btn btn-danger" style={{marginRight:"20px"}} >Sign-out</button>
+          <button className="btn btn-danger" style={{ marginRight: "20px" }}>
+            Sign-out
+          </button>
         </Link>
-        
       </div>
       <div className="container">
         <table className={`table ${tableDark}`}>
@@ -96,7 +114,7 @@ const Read = () => {
               <th scope="col"></th>
             </tr>
           </thead>
-          {data
+          {currentPost
             .filter((field) => {
               if (field === "") {
                 return field;
@@ -147,7 +165,12 @@ const Read = () => {
                 </>
               );
             })}
+
         </table>
+        <div  style={{textAlign:"center" , display:"flex" , justifyContent:"center" , alignItems:"center" , justifyContent:"center" }}>
+          {pages.map((page, index) => {
+            return <button key={index} onClick={()=>setCurrentPage(page)} className="btn-sm  m-1  ">{page}</button>;
+          })}</div>
       </div>
     </>
   );
